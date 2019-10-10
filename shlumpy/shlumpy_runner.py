@@ -1,4 +1,6 @@
-class ShlumpyRunner:
+from shlumpy.pipeline import Pipeline
+
+class PipelineRunner(Pipeline):
     def __init__(self):
         self.pipelines = {}
 
