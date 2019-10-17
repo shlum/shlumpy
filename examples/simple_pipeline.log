@@ -1,0 +1,11 @@
+LOGS
+1 - INFO - Initiated a pipeline name "cicd_pipeline"
+2 - INFO - Declared "stage1" stage
+3 - INFO - Declared "stage2" stage
+4 - INFO - Declared "stage3" stage
+5 - INFO - Declared "stage4" stage
+6 - INFO - Declared "stage5" stage
+7 - INFO - Ordered "cicd_pipeline" stages "stage1" > "stage2" > "stage3"
+8 - INFO - Ordered "cicd_pipeline" stages "stage2" > "stage4"
+9 - INFO - Ordered "cicd_pipeline" stages "stage3" + "stage4" > "stage5"
+10 - DEBUG - Running "cicd_pipeline"

@@ -1,21 +1,39 @@
-import shlumpy
+from shlumpy.pipeline import Pipeline
+
+pipeline = Pipeline("cicd")
 
 
-@shlumpy.stage("stage1")
-def build_package(src, dest):
+@pipeline.stage
+def build_package(src='a', dest='a'):
     print("Building a package from the source code")
 
-@shlumpy.stage("stage2")
-def save_artifact(src):
+
+@pipeline.stage
+def save_artifact(src='a'):
     print("Saving the package to Artifactory")
 
-@shlumpy.stage("stage3")
-def deploy_artifact(url):
+
+@pipeline.stage
+def deploy_artifact(url='a'):
     print("Deploying latest artifact to production")
 
 
-fb = FlowBuilder()
-fb.flow = stage1 > stage2 > stage3
+@pipeline.stage
+def run_tests(url='a'):
+    print("Run tests")
 
-with FlowRunner(fb) as fr:
-    fr.run(fb)
+
+@pipeline.stage
+def send_slack_message(url='a'):
+    print("Sending a slack message about the tests")
+
+
+def main():
+    pipeline.order_stages("build_package", "save_artifact", "deploy_artifact",
+                          "run_tests")
+    pipeline.order_stages("deploy_artifact", "send_slack_message")
+    pipeline.run()
+
+
+if __name__ == "main":
+    main()

@@ -1,7 +1,7 @@
 from time import sleep
 
 from shlumpy.pipeline_builder import PipelineBuilder
-from shlumpy.shlumpy_runner import ShlumpyRunner
+from shlumpy.pipeline_runner import PipelineRunner
 from shlumpy.stage import shlumpy_stage
 
 
