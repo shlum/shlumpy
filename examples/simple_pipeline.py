@@ -25,14 +25,16 @@ def run_tests(url='a'):
 
 @pipeline.stage
 def send_slack_message(url='a'):
-    print("Sending a slack message about the tests")
+    print("Sending a slack message about the deployment")
 
 
 def main():
-    pipeline.order_stages(build_package > save_artifact > deploy_artifact > run_tests)
+    # stages = pipeline.stages
+    # pipeline.order_stages(build_package > save_artifact > deploy_artifact > run_tests)
+
     pipeline.order_stages(deploy_artifact > send_slack_message)
     pipeline.run()
 
 
-if __name__ == "main":
+if __name__ == "__main__":
     main()
