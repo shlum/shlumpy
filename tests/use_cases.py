@@ -31,7 +31,7 @@ def main():
     runner = PipelineRunner()
     runner.set_up_logger()
     runner.add_pipeline(pipeline)
-    runner.run_flow_by_name("Bla")
+    runner.run_pipeline_by_name("Bla")
 
 if __name__ == '__main__':
     main()
