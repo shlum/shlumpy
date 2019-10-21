@@ -1,6 +1,7 @@
-from shlumpy.pipeline import Pipeline
+import logging
 
-class PipelineRunner(Pipeline):
+
+class PipelineRunner:
     def __init__(self):
         self.pipelines = {}
 
@@ -15,3 +16,8 @@ class PipelineRunner(Pipeline):
 
     def close(self):
         pass
+
+    def set_up_logger(self):
+        root_logger = logging.getLogger()
+        root_logger.addHandler(logging.StreamHandler())
+        root_logger.setLevel(logging.INFO)
