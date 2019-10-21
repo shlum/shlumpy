@@ -29,7 +29,7 @@ class PipelineRunner:
 
     def start_flask_server(self):
         app = Flask(__name__)
-        app.add_url_rule('/', 'home', 'self.homr')
+        app.add_url_rule('/', 'home', self.home)
         app.run()
 
     def home(self):
