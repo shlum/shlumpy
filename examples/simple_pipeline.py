@@ -29,9 +29,8 @@ def send_slack_message(url='a'):
 
 
 def main():
-    pipeline.order_stages("build_package", "save_artifact", "deploy_artifact",
-                          "run_tests")
-    pipeline.order_stages("deploy_artifact", "send_slack_message")
+    pipeline.order_stages(build_package > save_artifact > deploy_artifact > run_tests)
+    pipeline.order_stages(deploy_artifact > send_slack_message)
     pipeline.run()
 
 
